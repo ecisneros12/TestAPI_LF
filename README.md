@@ -20,32 +20,45 @@ Categoría
 public class Categoria
 {
     public int Id { get; set; }
+    
     [Required]
     public string Nombre { get; set; }
+    
     [JsonIgnore] // loops y errores con el JSON
+    
     public List<Producto> Productos { get; set; } = new List<Producto>();
 }
 Producto
 public class Producto
 {
     public int Id { get; set; }
+    
     [Required]
     public string Nombre { get; set; }
+    
     public string Descripcion { get; set; }
+    
     [Required]
     public decimal Precio { get; set; }
+    
     [Required]
     public int CategoriaId { get; set; }
+    
     public Categoria? Categoria { get; set; }  //Puede ser requerido o no
 }
 
 🚀 Endpoints Principales
 Método	Ruta	Descripción
 GET	/api/productos	Obtener todos los productos
+
 GET	/api/productos/{id}	Obtener producto por ID
+
 POST	/api/productos	Crear un nuevo producto
+
 PUT	/api/productos/{id}	Actualizar un producto
+
 DELETE	/api/productos/{id}	Eliminar un producto
+
 GET	/api/categorias	Listar categorías disponibles
 
 🌐 Aplicación Web
@@ -56,7 +69,8 @@ GET	/api/categorias	Listar categorías disponibles
 
 ⚙️ Instrucciones de Uso:
 1- Clonar repositorio:
-git clone https://github.com/nombre-proyecto.git
+git clone 
+https://github.com/nombre-proyecto.git
 cd nombre-proyecto
 2. Configurar la cadena de conexión en appsettings.json.
 3. Ejecutar migraciones y crear la base de datos:
@@ -64,7 +78,9 @@ dotnet ef migrations add InitialCreate
 dotnet ef database update
 4. Ejecutar el servidor:
 dotnet run
-Abrir desde la interfaz web en  http://localhost:5179/crear-producto.html o desde el proyecto cliente.
+
+Abrir desde la interfaz web en:
+http://localhost:5179/crear-producto.html o desde el proyecto cliente.
 
 Extras:
 Prueba de funcionalidad:
